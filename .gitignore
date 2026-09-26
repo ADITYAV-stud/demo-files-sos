@@ -1,0 +1,36 @@
+# Python virtual environments
+source/
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Generated SDR data
+*.npy
+*.C16
+
+# Compiled files
+*.o
+
+# Compiled executables
+lora_rx
+lora_tx
+lora_tx_gen
+
+# Logs / temporary files
+*.log
+*.tmp
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+

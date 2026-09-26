@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default: Dark Blue theme (Words color: WHITE) */
+  --bg-main: #050B14;
+  --bg-card: rgba(8, 20, 38, 0.85);
+  --bg-card-hover: rgba(14, 32, 60, 0.95);
+  --border-color: rgba(0, 240, 255, 0.25);
+  --border-glow: rgba(0, 240, 255, 0.4);
+  --text-main: #FFFFFF;
+  --text-muted: #CBD5E1;
+  --panel-glass: rgba(6, 16, 32, 0.85);
+}
+
+/* Theme 2: Deep Cyber Dark (Words color: WHITE) */
+.theme-dark {
+  --bg-main: #020408;
+  --bg-card: rgba(8, 12, 20, 0.9);
+  --bg-card-hover: rgba(15, 22, 35, 0.98);
+  --border-color: rgba(0, 255, 102, 0.3);
+  --border-glow: rgba(0, 255, 102, 0.4);
+  --text-main: #FFFFFF;
+  --text-muted: #CBD5E1;
+  --panel-glass: rgba(5, 8, 14, 0.9);
+}
+
+/* Theme 3: Light High-Contrast Tactical (Words color: BLACK) */
+.theme-light {
+  --bg-main: #F8FAFC;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --bg-card-hover: #F1F5F9;
+  --border-color: rgba(148, 163, 184, 0.5);
+  --border-glow: rgba(2, 132, 199, 0.5);
+  --text-main: #000000;
+  --text-muted: #1E293B;
+  --panel-glass: rgba(255, 255, 255, 0.98);
+}
+
+/* Base Body Styles */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-display {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* THEME SPECIFIC TYPOGRAPHY OVERRIDES */
+
+/* Dark Blue & Deep Black Themes: Ensure all text is bright White / Light */
+:root:not(.theme-light) {
+  color: #FFFFFF;
+}
+
+:root:not(.theme-light) h1,
+:root:not(.theme-light) h2,
+:root:not(.theme-light) h3,
+:root:not(.theme-light) h4,
+:root:not(.theme-light) h5,
+:root:not(.theme-light) p,
+:root:not(.theme-light) label,
+:root:not(.theme-light) span:not([class*="text-"]),
+:root:not(.theme-light) td:not([class*="text-"]),
+:root:not(.theme-light) th:not([class*="text-"]) {
+  color: #FFFFFF;
+}
+
+/* White Theme: All words MUST be pure BLACK */
+.theme-light {
+  color: #000000 !important;
+}
+
+.theme-light h1,
+.theme-light h2,
+.theme-light h3,
+.theme-light h4,
+.theme-light h5,
+.theme-light p,
+.theme-light span:not([class*="text-emerald-"]):not([class*="text-rose-"]):not([class*="text-amber-"]):not([class*="text-cyan-"]),
+.theme-light label,
+.theme-light div:not([class*="bg-rose-"]):not([class*="bg-emerald-"]):not([class*="bg-amber-"]):not([class*="bg-cyan-"]),
+.theme-light table,
+.theme-light thead,
+.theme-light tbody,
+.theme-light tr,
+.theme-light th,
+.theme-light td:not([class*="text-rose-"]):not([class*="text-emerald-"]):not([class*="text-amber-"]):not([class*="text-cyan-"]),
+.theme-light input,
+.theme-light select,
+.theme-light textarea {
+  color: #000000 !important;
+}
+
+.theme-light .text-slate-100,
+.theme-light .text-slate-200,
+.theme-light .text-slate-300,
+.theme-light .text-slate-400,
+.theme-light .text-slate-500,
+.theme-light .text-slate-600 {
+  color: #0F172A !important;
+}
+
+.theme-light .text-cyan-400,
+.theme-light .text-cyan-300 {
+  color: #0284C7 !important;
+}
+
+.theme-light .bg-slate-950,
+.theme-light .bg-slate-900,
+.theme-light aside,
+.theme-light header,
+.theme-light [class*="bg-\[\#0"] {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+}
+
+.theme-light .glass-panel {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+.theme-light input,
+.theme-light select,
+.theme-light textarea {
+  background-color: #F8FAFC !important;
+  border-color: #94A3B8 !important;
+}
+
+/* Custom Glassmorphism */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-color);
+}
+
+.glass-modal {
+  background: rgba(5, 11, 20, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  box-shadow: 0 0 50px rgba(0, 240, 255, 0.18);
+}
+
+/* Radar pulse animation */
+@keyframes radar-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.radar-ring {
+  animation: radar-pulse 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(5, 11, 20, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(30, 96, 145, 0.5);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.7);
+}
+
+/* 100% Free Tactical OpenStreetMap Dark Filter (Zero Watermark / Zero API Key) */
+.tactical-osm-tiles {
+  filter: brightness(0.6) invert(1) contrast(2.8) hue-rotate(200deg) saturate(0.35) brightness(0.75);
+}
+
+.theme-light .tactical-osm-tiles {
+  filter: brightness(1) contrast(1.1) saturate(0.9) !important;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #060d17 !important;
+  border-radius: 0.75rem;
+}
+
+.theme-light .leaflet-container {
+  background: #F1F5F9 !important;
+}
+
+.leaflet-control-zoom {
+  border: 1px solid rgba(0, 240, 255, 0.3) !important;
+  background: rgba(10, 25, 47, 0.9) !important;
+  backdrop-filter: blur(8px);
+}
+.leaflet-control-zoom a {
+  background: transparent !important;
+  color: #00F0FF !important;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2) !important;
+}
+.leaflet-control-zoom a:hover {
+  background: rgba(0, 240, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+/* Hide leaflet attribution and bottom links */
+.leaflet-control-attribution {
+  display: none !important;
+}
+
+/* Marker styling & Hexagon Clip */
+.custom-beacon-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.clip-hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}

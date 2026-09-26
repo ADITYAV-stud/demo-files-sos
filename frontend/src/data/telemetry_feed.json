@@ -1,0 +1,74 @@
+{
+  "systemStatus": "ONLINE",
+  "groundStation": {
+    "stationId": "GS-OFFGRID-BLADERF-01",
+    "frequency": "434.000 MHz",
+    "bandwidth": "125 kHz",
+    "sdrEngine": "Nuand bladeRF 2.0 micro xA4",
+    "satellitePass": "LEO-SAR-ORBIT-42",
+    "activeChannels": 1,
+    "lastSignalTimestamp": "Just now"
+  },
+  "stats": {
+    "totalSosAlerts": 1,
+    "activeDevices": 1,
+    "dispatched": 0,
+    "resolved": 0
+  },
+  "alerts": [
+    {
+      "id": "SOS-1001",
+      "deviceId": "1001",
+      "messageId": "1",
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "altitude": 15.0,
+      "hdop": 1.05,
+      "timestamp": "376 (13:08)",
+      "fullTimestamp": "11 Sep 2026, 13:08:27 UTC (T:376)",
+      "alertType": "SOS (Type 1)",
+      "severity": "CRITICAL",
+      "status": "pending",
+      "battery": 95,
+      "rssi": -72,
+      "snr": 8.5,
+      "spreadingFactor": "SF9",
+      "codingRate": "4/7",
+      "frequency": "434.000 MHz",
+      "locationName": "Real Lab Tested Coordinates (13.0827° N, 80.2707° E)",
+      "tag": "RFC",
+      "magic": "b'SO'",
+      "iv": "546478afe1dec2f4d1a88771",
+      "ciphertext": "45771e25ef95c480f6be8d7750646aa2bed0d171375601051cc40f40674c",
+      "gcmTag": "5240b9334864d8f652aa7796e574b669",
+      "aad": "e9030000",
+      "rawHex": "52464300e903000001000000f842cc073856d82f0f00690078010000015f",
+      "assignedTeam": null,
+      "timeline": [
+        { "stage": "LoRa SOS Transmitted", "time": "13:08:10", "desc": "ESP32 DevKit V1 + SX1278 broadcasted 64-byte frame on 434.0 MHz" },
+        { "stage": "bladeRF SDR Demod", "time": "13:08:20", "desc": "bladeRF 2.0 micro xA4 recovered 64-byte radio frame" },
+        { "stage": "AES-256-GCM Auth", "time": "13:08:25", "desc": "AES-GCM authentication verified & decrypted 30-byte plaintext" },
+        { "stage": "Decoded SOS Data", "time": "13:08:27", "desc": "Device 1001, Lat 13.0827°, Lon 80.2707°, Alt 15m, Batt 95%" }
+      ]
+    }
+  ],
+  "devices": [
+    {
+      "id": "1001",
+      "model": "ESP32 DevKit V1 + Ai-Thinker Ra-02 (SX1278)",
+      "status": "online",
+      "battery": 95,
+      "lastSeen": "Active",
+      "lastSeenTimestamp": "13:08",
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "altitude": 15,
+      "alertsCount": 1,
+      "firmware": "v1.0.0-lab-aes256",
+      "signalStrength": -72,
+      "frequency": "434.000 MHz (SF9)",
+      "owner": "ESP32 LoRa SOS Node 1001"
+    }
+  ]
+}
+
